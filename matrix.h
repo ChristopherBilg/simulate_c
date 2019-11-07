@@ -13,5 +13,6 @@ typedef struct Matrix {
 struct Matrix *matrix_init(int nRows, int nCols, int initialValue);
 void matrix_free(struct Matrix *matrix);
 int matrix_display(struct Matrix *matrix);
+int matrix_populate(struct Matrix *matrix, int modulo);
 
 #endif

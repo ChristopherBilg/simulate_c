@@ -43,3 +43,15 @@ int matrix_display(struct Matrix *matrix) {
   return 0;
 }
 
+int matrix_populate(struct Matrix *matrix, int modulo) {
+  if (matrix == NULL || matrix->elements == NULL)
+    return 1;
+
+  if (modulo < 0)
+    modulo = -modulo;
+
+  for (int i = 0; i < (matrix->nRows * matrix->nCols); i++)
+    matrix->elements[i] = rand() % modulo;
+  
+  return 0;
+}
