@@ -1,11 +1,17 @@
 #include "matrix.h"
 
 int main(int argc, char **argv) {
-  printf("Test\n");
+  struct Matrix *m1 = matrix_init(5, 3, 1);
+  matrix_display(m1);
+
+  matrix_free(m1);
   return EXIT_SUCCESS;
 }
 
 struct Matrix *matrix_init(int nRows, int nCols, int initialValue) {
+  if (nRows < 1 || nCols < 1)
+    return NULL;
+  
   struct Matrix *matrix = (struct Matrix *)malloc(sizeof(struct Matrix));
   if (matrix == NULL)
     return NULL;
@@ -30,4 +36,17 @@ void matrix_free(struct Matrix *matrix) {
   free(matrix);
 }
 
-int matrix_display(struct Matrix *matrix) {}
+int matrix_display(struct Matrix *matrix) {
+  if (matrix == NULL || matrix->elements == NULL)
+    return 1;
+
+  for (int i = 0; i < (matrix->nRows * matrix->nCols); i++) {
+    printf("%d", matrix->elements[i]);
+    if ((i + 1) % matrix->nCols == 0)
+      printf("\n");
+    else
+      printf(" ");
+  }
+  
+  return 0;
+}
