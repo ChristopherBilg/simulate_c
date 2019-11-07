@@ -1,13 +1,5 @@
 #include "matrix.h"
 
-int main(int argc, char **argv) {
-  struct Matrix *m1 = matrix_init(5, 3, 1);
-  matrix_display(m1);
-
-  matrix_free(m1);
-  return EXIT_SUCCESS;
-}
-
 struct Matrix *matrix_init(int nRows, int nCols, int initialValue) {
   if (nRows < 1 || nCols < 1)
     return NULL;
@@ -50,3 +42,4 @@ int matrix_display(struct Matrix *matrix) {
   
   return 0;
 }
+
