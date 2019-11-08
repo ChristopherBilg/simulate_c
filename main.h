@@ -1,6 +1,6 @@
 #ifndef _MAIN_H
 #define _MAIN_H
 
-#include "matrix.h"
+#include "matrix/matrix.h"
 
 #endif
