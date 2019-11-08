@@ -1,14 +1,16 @@
 #include "main.h"
 
 int main(int argc, char **argv) {
-  struct Matrix *m1 = matrix_init(5, 3, 1);
-  struct Matrix *m2 = matrix_init(5, 3, 1);
-  struct Matrix *m3 = matrix_init(5, 3, 9);
+  if (argc > 1) {
+    printf("Correct Usage: %s", argv[0]);
+    return EXIT_SUCCESS;
+  }
 
-  matrix_add(m3, m1, m2);
-  matrix_display(m3);
+  struct Matrix *m1 = matrix_init(1, 3, 2);
+  struct Matrix *m2 = matrix_init(3, 1, 3);
+  struct Matrix *m3 = matrix_init(1, 1, 0);
 
-  matrix_subtract(m3, m1, m2);
+  matrix_multiply(m3, m1, m2);
   matrix_display(m3);
 
   matrix_free(m1);
