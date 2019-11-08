@@ -55,3 +55,41 @@ int matrix_populate(struct Matrix *matrix, int modulo) {
 
   return 0;
 }
+
+int matrix_add(struct Matrix *dest, struct Matrix *a, struct Matrix *b) {
+  if (dest == NULL || a == NULL || b == NULL)
+    return 1;
+
+  if (dest->elements == NULL || a->elements == NULL || b->elements == NULL)
+    return 1;
+
+  if (dest->nRows != a->nRows || a->nRows != b->nRows)
+    return 1;
+
+  if (dest->nCols != a->nCols || a->nCols != b->nCols)
+    return 1;
+
+  for (int i = 0; i <(dest->nRows * dest->nCols); i++)
+    dest->elements[i] = a->elements[i] + b->elements[i];
+
+  return 0;
+}
+
+int matrix_subtract(struct Matrix *dest, struct Matrix *a, struct Matrix *b) {
+  if (dest == NULL || a == NULL || b == NULL)
+    return 1;
+
+  if (dest->elements == NULL || a->elements == NULL || b->elements == NULL)
+    return 1;
+
+  if (dest->nRows != a->nRows || a->nRows != b->nRows)
+    return 1;
+
+  if (dest->nCols != a->nCols || a->nCols != b->nCols)
+    return 1;
+
+  for (int i = 0; i <(dest->nRows * dest->nCols); i++)
+    dest->elements[i] = a->elements[i] - b->elements[i];
+
+  return 0;
+}
