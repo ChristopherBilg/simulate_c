@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 
 args=-i
-source=main.c matrix/matrix.c
-headers=main.h matrix/matrix.h
+declare -a source=(
+    main.c
+    matrix/matrix.c
+)
+declare -a headers=(
+    main.h
+    matrix/matrix.h
+)
 
-clang-format ${args} ${source} ${headers}
+declare -a all_files=("${source[@]}" "${headers[@]}")
+
+for i in "${all_files[@]}"
+do
+   echo "Formatting all_files file: $i"
+    clang-format ${args} $i
+done

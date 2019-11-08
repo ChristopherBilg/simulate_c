@@ -3,7 +3,7 @@
 struct Matrix *matrix_init(int nRows, int nCols, int initialValue) {
   if (nRows < 1 || nCols < 1)
     return NULL;
-  
+
   struct Matrix *matrix = (struct Matrix *)malloc(sizeof(struct Matrix));
   if (matrix == NULL)
     return NULL;
@@ -39,7 +39,7 @@ int matrix_display(struct Matrix *matrix) {
     else
       printf(" ");
   }
-  
+
   return 0;
 }
 
@@ -52,6 +52,6 @@ int matrix_populate(struct Matrix *matrix, int modulo) {
 
   for (int i = 0; i < (matrix->nRows * matrix->nCols); i++)
     matrix->elements[i] = rand() % modulo;
-  
+
   return 0;
 }

@@ -1,9 +1,9 @@
-generated_files=main.out
+generated_files=output
 
-all: main.out
+all: output
 
-main.out: main.c matrix.c
-	gcc -std=c99 -g -O3 -Wall -o main.out main.c matrix.c
+output: main.c matrix/matrix.c
+	gcc -std=c99 -g -O3 -Wall -o output main.c matrix/matrix.c
 
 clean:
 	rm -f ${generated_files}
